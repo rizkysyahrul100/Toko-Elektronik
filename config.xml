@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.contoh.helloappdb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Kontol</name>
+    <name>APK TRANSAKSI ELEKTRONIK</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Selamat datang di Aplikasi transaksi,semoga bermanfaat 
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="rizkysyahrul100@gmail.com" href="http://cordova.io">
+        Rizky syahrul Ramadhan
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
