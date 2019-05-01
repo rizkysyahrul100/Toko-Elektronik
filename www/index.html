@@ -218,7 +218,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
             function showdata()
             {
                 $.ajax({
-                    url: "http://localhost/restfull-api/api/transaksi",
+                    url: "http://pkl.notaxcloth.com/restfull-rz/api/transaksi",
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -258,7 +258,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
               var data = $("#form-tambah").serialize();
               console.log(data);
                 $.ajax({
-                    url: "http://localhost/restfull-api/api/transaksi",
+                    url: "http://pkl.notaxcloth.com/restfull-rz/api/transaksi",
                     type: "POST",
                     data: $("#form-tambah").serialize(),
                     dataType: "JSON",
@@ -284,7 +284,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
 
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost/restfull-api/api/transaksi",
+                    url: "http://pkl.notaxcloth.com/restfull-rz/api/transaksi",
                     dataType: "JSON",
                     data: {
                         id: id
@@ -315,7 +315,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
                 var data =   $("#form-edit").serialize();
                 console.log(data);
                 $.ajax({
-                    url: "http://localhost/restfull-api/api/transaksi",
+                    url: "http://pkl.notaxcloth.com/restfull-rz/api/transaksi",
                     type: "PUT",
                     data: $("#form-edit").serialize(),
                     dataType: "JSON",
@@ -339,7 +339,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
               var id = $(this).attr('id');
                 console.log(id);
                 $.ajax({
-                    url: "http://localhost/restfull-api/api/transaksi",
+                    url: "http://pkl.notaxcloth.com/restfull-rz/api/transaksi",
                     type: "DELETE",
                     data: {
                         id: id
