@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>Toko Elektronik</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width">        
+  <link rel="stylesheet" href="css/templatemo_main.css">
+<!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+</head>
+<body>
+  <div id="main-wrapper">
+    <div class="navbar navbar-inverse" role="navigation">  
+    </div>
+    <div class="template-page-wrapper">
+      <div class="navbar-collapse collapse templatemo-sidebar">
+        <ul class="templatemo-sidebar-menu">
+          <li class="active"><a href="#"><i class="fa fa-users"></i><span class="badge pull-right"></span>Data Transaksi </a></li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+
+      <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+          
+          <h1>TABEL TRANSAKSI</h1>
+          <h2>Toko ELETRONIK</h2>
+          <div class="row margin-bottom-30">
+            <div class="col-md-12">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-alt btn-sm btn-info" data-toggle="modal"
+                    data-target="#modaltambah">
+                    <i class="fa fa-plus"></i> Tambah Data
+                </button>
+            </div>         
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-md-12"> 
+              <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>id transaksi</th>
+                      <th>kode transaksi</th>
+                      <th>id produk</th>
+                      <th>harga satuan</th>
+                      <th>jumlah</th>
+                      <th>harga</th>
+                      <th>tanggal</th>
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="showdata">
+                                 
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal ERI -->
+      <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">TAMBAH DATA </h4>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post" id="form-tambah" enctype="multipart/form-data"
+                        class="form-horizontal form-bordered" onsubmit="return false;">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">ID TRANSAKSI :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="id" name="id" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">KODE TRANSAKSI :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="kode" name="kode" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">ID PRODUK:</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="produk" name="produk" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">HARGA SATUAN :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="harga" name="harga" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">JUMLAH :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="jumlah" name="jumlah" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-3 control-label" for="id_produk">STANDARD HARGA :</label>
+                              <div class="col-md-9">
+                                  <input type="text" id="sum_harga" name="sum" class="form-control" placeholder="">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="id_produk">TANGGAL :</label>
+                            <div class="col-md-9">
+                                <input type="date" id="tanggal" name="tanggal" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                            </legend>
+                        </fieldset>
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <div class="col-xs-12 text-right">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-sm btn-primary" id="tambah">Simpan</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">EDIT DATA </h4>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post" id="form-edit" enctype="multipart/form-data"
+                        class="form-horizontal form-bordered" onsubmit="return false;">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">ID TRANSAKSI :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="ide" name="id" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">KODE TRANSAKSI :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="kodee" name="kode" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">ID PRODUK:</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="produke" name="produk" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">HARGA SATUAN :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="hargae" name="harga" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="id_produk">JUMLAH :</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="jumlahe" name="jumlah" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-3 control-label" for="id_produk">STANDARD HARGA :</label>
+                              <div class="col-md-9">
+                                  <input type="text" id="sum_hargae" name="sum" class="form-control" placeholder="">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="id_produk">TANGGAL :</label>
+                            <div class="col-md-9">
+                                <input type="date" id="tanggale" name="tanggal" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                            </legend>
+                        </fieldset>
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <div class="col-xs-12 text-right">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-sm btn-primary" id="edit">Simpan</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="templatemo-footer">
+        <div class="templatemo-copyright">
+          <p>By : Rizky Syahrul Ramadhan (16.01.53.0122) <!-- Credit: www.templatemo.com --></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/templatemo_script.js"></script>
+    <script>
+         $(document).ready(function () {
+            showdata();
+            function showdata()
+            {
+                $.ajax({
+                    url: "http://localhost/restfull-api/api/transaksi",
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        console.log(data['data']);
+                        var no = 1;
+                        $.each(data['data'], function (i, field) {
+                            var id = field.id_transaksi;
+                            var kode = field.kode_transaksi;
+                            var idp = field.id_produk;
+                            var hargas = field.harga_satuan;
+                            var jumlah = field.jumlah;
+                            var harga = field.sum_harga;
+                            var tanggal = field.tanggal;
+                            $("#showdata").append(`
+                                <tr>
+                                    <td class="text-center">` + no++ + `</td>
+                                    <td class="text-center">` + id + `</td>
+                                    <td class="text-center">` + kode + `</td>
+                                    <td>` + idp + `</td>
+                                    <td>` + hargas + `</td>
+                                    <td class="text-center">` + jumlah + `</td>
+                                    <td class="text-center">` + harga + `</td>
+                                    <td class="text-center">` + tanggal + `</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-sm btn-dark item_edit" name="item_edit" title="Edit" data-toggle="modal" id="` + id + `" onclick=""><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-sm btn-default hapus"  title="Hapus" data-toggle="modal"id="` + id + `"><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr> 
+                            `);                           
+                        });
+                        $('#tabeldata').DataTable(); 
+                    }
+                });
+                
+            }
+            $("#tambah").click(function () {
+              var data = $("#form-tambah").serialize();
+              console.log(data);
+                $.ajax({
+                    url: "http://localhost/restfull-api/api/transaksi",
+                    type: "POST",
+                    data: $("#form-tambah").serialize(),
+                    dataType: "JSON",
+                    success: function (result) {
+                        if (result.status) {
+                            alert("Sukses, Data berhasil ditambahkan");
+                            $('#modaltambah').modal('hide');
+                            window.location.href =
+                            "index.html";
+                        } else {
+                            alert("Error, Data Gagal ditambahkan");
+                        }
+                    },
+                    error: function (xhr, Status, err) {
+                        $("Data Kurang Lengkap : " + Status);
+                    }
+                });
+                return false;
+                });
+            $(document).on('click','.item_edit', function(){
+                var id = $(this).attr('id');
+                console.log(id);
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost/restfull-api/api/transaksi",
+                    dataType: "JSON",
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        console.log(data['data']);
+                        $.each(data['data'], function (i,field) {
+                          var id = field.id_transaksi;
+                            var kode = field.kode_transaksi;
+                            var idp = field.id_produk;
+                            var hargas = field.harga_satuan;
+                            var jumlah = field.jumlah;
+                            var harga = field.sum_harga;
+                            var tanggal = field.tanggal;
+                            $('[id="ide"]').val(id);
+                            $('[id="kodee"]').val(kode);
+                            $('[id="produke"]').val(idp);
+                            $('[id="hargae"]').val(hargas);
+                            $('[id="jumlahe"]').val(jumlah);
+                            $('[id="sum_hargae"]').val(harga);
+                            $('[id="tanggale"]').val(tanggal);
+                        });
+                        $('#modaledit').modal('show');
+                    }
+                });
+            });
+            $(document).on('click','#edit', function(){
+                var data =   $("#form-edit").serialize();
+                console.log(data);
+                $.ajax({
+                    url: "http://localhost/restfull-api/api/transaksi",
+                    type: "PUT",
+                    data: $("#form-edit").serialize(),
+                    dataType: "JSON",
+                    success: function (result) {
+                        if (result.status) {
+                            alert("Sukses, Data berhasil dirubah");
+                            $('#edit').modal('hide');
+                            window.location.href =
+                            "index.html";
+                        } else {
+                            alert("Error, Data Gagal dirubah");
+                        }
+                    },
+                    error: function (xhr, Status, err) {
+                        $("Data Kurang Lengkap : " + Status);
+                    }
+                });
+                return false;
+                });
+            $(document).on('click','.hapus', function(){
+              var id = $(this).attr('id');
+                console.log(id);
+                $.ajax({
+                    url: "http://localhost/restfull-api/api/transaksi",
+                    type: "DELETE",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function (result) {
+                        if (result.status) {
+                            alert("Sukses, Data berhasil dihapus");
+                            window.location.href =
+                            "index.html";
+                        } else {
+                            alert("Error, Data Gagal dihapus");
+                        }
+                    },
+                    error: function (xhr, Status, err) {
+                        $("Data Kurang Lengkap : " + Status);
+                    }
+                });
+                return false;
+                });
+        });
+    </script>
+  </body>
+</html>
